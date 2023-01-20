@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const Signup = () => {
+  const BASE_URL = "https://weather-react-app-backend-hiuv.onrender.com";
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -19,7 +20,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = `http://localhost:8080/api/users`;
+      const url = `${BASE_URL}/api/users`;
       const { data: res } = await axios.post(url, data);
       navigate("/login");
       console.log(res.message);
